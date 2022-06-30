@@ -1,7 +1,27 @@
 {% extends 'base/main.html' %}
+{% load static %}
 
 {% block content %}
 
-<h3>Posts page template</h3>
+<div class="main-container">
+    <h1>Posts</h1>    
+    <div class="post-wrapper">
+
+        {% for post in posts %}
+        <div>
+            <div class="post">
+                <img class="thumbnail" src="{% static 'images/cuberun.png' %}">
+                <div class="post-preview">
+                    <h6 class="post-title">{{post.headline}}</h6>
+                    <p class="post-intro">{{post.sub_headline}}</p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+            <h3>No posts found...</h3>
+        {% endfor %}
+    </div>
+</div>
 
 {% endblock content %}

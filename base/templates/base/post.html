@@ -1,7 +1,16 @@
 {% extends 'base/main.html' %}
 
+{% load static %}
+
 {% block content %}
 
-<h3>Post page template</h3>
+<div class="main-container">
+    <h3>Post Title</h3>
+
+    <img src="{% static 'images/picture.jpeg' %}">
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus beatae quidem architecto laboriosam modi maiores provident accusantium officia, atque perferendis repellendus perspiciatis reiciendis non, commodi, at ea asperiores laborum debitis!</p>
+
+</div>
 
 {% endblock content %}
