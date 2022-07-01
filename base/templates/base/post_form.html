@@ -1,0 +1,13 @@
+{% extends 'base/main.html' %}
+{% load static %}
+{% block content %}
+<div class="main-container">
+    <h3>Post Form Template</h3>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="btn btn-primary" type="submit" value="Submit Post">
+    </form>
+</div>
+
+{% endblock content %}

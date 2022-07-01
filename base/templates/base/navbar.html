@@ -9,5 +9,8 @@
     <!-- We'll change it to a ul tag for our nav-bar later -->
     <ul id="navigation">
         <li><a href="{% url 'home' %}">Contact</a></li>
+        {% if request.user.is_authenticated %}
+            <li><a href="{% url 'create_post' %}">Create Post</a></li>
+        {% endif %}
     </ul>
 </div>
