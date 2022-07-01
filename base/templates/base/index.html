@@ -113,39 +113,18 @@
         <div class="main-container">
             <h3 style="text-align: center;">Previous Projects</h3>
             <div class="post-wrapper">
-
+                {% for post in posts %}
                 <div>
                     <div class="post">
-                        <img class="thumbnail" src="{% static 'images/cuberun.png' %}">
+                        <img class="thumbnail" src="{{post.thumbnail.url}}">
                         <div class="post-preview">
-                            <h6 class="post-title">Cube Run</h6>
-                            <p class="post-intro">An endless platformer available for Windows and Android</p>
-                            <a href="#">Read More</a>
+                            <h6 class="post-title">{{post.headline}}</h6>
+                            <p class="post-intro">{{post.sub_headline}}</p>
+                            <a href="{% url 'post' post.id  %}">Read More</a>
                         </div>
                     </div>
                 </div>
-
-                <div>
-                    <div class="post">
-                        <img class="thumbnail" src="{% static 'images/ecom.jpg' %}">
-                        <div class="post-preview">
-                            <h6 class="post-title">Online Store</h6>
-                            <p class="post-intro">Online store with paypal payments integration and guest user shopping</p>
-                            <a href="#">Read More</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="post">
-                        <img class="thumbnail" src="{% static 'images/flightManagementSystem.png' %}">
-                        <div class="post-preview">
-                            <h6 class="post-title">Flight Reservation System</h6>
-                            <p class="post-intro">Built using Java and Servlets</p>
-                            <a href="#">Read More</a>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
 
             </div>
             

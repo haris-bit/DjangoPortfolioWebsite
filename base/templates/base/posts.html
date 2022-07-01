@@ -10,11 +10,16 @@
         {% for post in posts %}
         <div>
             <div class="post">
-                <img class="thumbnail" src="{% static 'images/cuberun.png' %}">
+                <img class="thumbnail" src="{{post.thumbnail.url}}">
                 <div class="post-preview">
                     <h6 class="post-title">{{post.headline}}</h6>
                     <p class="post-intro">{{post.sub_headline}}</p>
-                    <a href="#">Read More</a>
+                    <a href="{% url 'post' post.id %}">Read More</a>
+
+                    <hr>
+                    {% for tag in post.tags.all %}
+                        <span class="tag">{{tag}}</span>
+                    {% endfor %}
                 </div>
             </div>
         </div>

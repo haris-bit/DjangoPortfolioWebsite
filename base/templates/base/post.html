@@ -4,12 +4,20 @@
 
 {% block content %}
 
+<style type="text/css">
+    img {
+        max-width: 100%;
+        object-fit: cover;
+    }
+</style>
+
 <div class="main-container">
-    <h3>Post Title</h3>
 
-    <img src="{% static 'images/picture.jpeg' %}">
+    <img src="{{post.thumbnail.url}}">
+    <h1>{{post.headline}}</h1>
+    <h4>{{post.sub_headline}}</h4>
 
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus beatae quidem architecto laboriosam modi maiores provident accusantium officia, atque perferendis repellendus perspiciatis reiciendis non, commodi, at ea asperiores laborum debitis!</p>
+    <p>{{post.body|linebreaks}}</p>
 
 </div>
 
