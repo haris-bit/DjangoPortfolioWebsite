@@ -67,7 +67,9 @@ ROOT_URLCONF = 'harisiftikhar.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -128,7 +130,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 MEDIA_URL = '/images/'
 
 STATICFILES_DIRS = [
@@ -155,7 +157,7 @@ EMAIL_HOST_PASSWORD = 'tuzyuiryqshzpvub'
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 
 CKEDITOR_CONFIGS = {
-    'default' : {
+    'default': {
         'toolbar': 'full',
         'height': 300,
         'width': '100%',
@@ -163,14 +165,18 @@ CKEDITOR_CONFIGS = {
 }
 
 
-AWS_QUERYSTRING_AUTH = False
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-AWS_ACCESS_KEY_ID = 'AKIAWEE7YGGZQ6PRGNTV'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'harisiftikhar-personal'
+AWS_ACCESS_KEY_ID = 'AKIAWEE7YGGZ6TV4PZ55'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'testing-website-bucket'
 
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
+
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+AWS_QUERYSTRING_AUTH = False
+
+# AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+# TEXT_CKEDITOR_BASE_PATH = 'https://%s/staticfiles/ckeditor/' % AWS_S3_CUSTOM_DOMAIN
