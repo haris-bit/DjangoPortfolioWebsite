@@ -120,7 +120,7 @@
                         <div class="post-preview">
                             <h6 class="post-title">{{post.headline}}</h6>
                             <p class="post-intro">{{post.sub_headline}}</p>
-                            <a href="{% url 'post' post.id  %}">Read More</a>
+                            <a href="{% url 'post' post.slug  %}">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -138,8 +138,8 @@
         <div class="main-container">
             <h3 style="text-align: center;">Contact Me</h3>
 
-            <form id="contact-form">
-
+            <form id="contact-form" method="POST" action="{% url 'send_email' %}">
+                {% csrf_token %}
 				<label>Name</label>
 				<input class="input-field" type="text" name="name">
 

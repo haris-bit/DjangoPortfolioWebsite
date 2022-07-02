@@ -18,6 +18,7 @@
     <h3>Post Form Template</h3>
     <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
+        {{form.media}}
         {{form|crispy}}
         <input class="btn btn-primary" type="submit" value="Submit Post">
     </form>
